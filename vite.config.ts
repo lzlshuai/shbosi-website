@@ -24,7 +24,7 @@ export default defineConfig({
     outDir: 'dist',
     assetsDir: 'assets',
     cssCodeSplit: true,
-    sourcemap: true,
+    sourcemap: false,
     chunkSizeWarningLimit: 1500,
     minify: 'terser',
     terserOptions: {

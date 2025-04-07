@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="240" height="240" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+  <rect width="240" height="240" fill="white"/>
+  <!-- QR码图案 - 简化版本 -->
+  <!-- 定位标记 - 左上角 -->
+  <rect x="20" y="20" width="30" height="30" fill="black"/>
+  <rect x="25" y="25" width="20" height="20" fill="white"/>
+  <rect x="30" y="30" width="10" height="10" fill="black"/>
+  
+  <!-- 定位标记 - 右上角 -->
+  <rect x="190" y="20" width="30" height="30" fill="black"/>
+  <rect x="195" y="25" width="20" height="20" fill="white"/>
+  <rect x="200" y="30" width="10" height="10" fill="black"/>
+  
+  <!-- 定位标记 - 左下角 -->
+  <rect x="20" y="190" width="30" height="30" fill="black"/>
+  <rect x="25" y="195" width="20" height="20" fill="white"/>
+  <rect x="30" y="200" width="10" height="10" fill="black"/>
+  
+  <!-- 微信Logo -->
+  <rect x="95" y="95" width="50" height="50" fill="black"/>
+  <circle cx="120" cy="120" r="20" fill="white"/>
+  
+  <!-- QR码数据点 - 模拟实际QR码的随机点 -->
+  <!-- 第1行 数据点 -->
+  <rect x="60" y="20" width="5" height="5" fill="black"/>
+  <rect x="70" y="20" width="5" height="5" fill="black"/>
+  <rect x="80" y="20" width="5" height="5" fill="black"/>
+  <rect x="95" y="20" width="5" height="5" fill="black"/>
+  <rect x="105" y="20" width="5" height="5" fill="black"/>
+  <rect x="130" y="20" width="5" height="5" fill="black"/>
+  <rect x="145" y="20" width="5" height="5" fill="black"/>
+  <rect x="155" y="20" width="5" height="5" fill="black"/>
+  <rect x="165" y="20" width="5" height="5" fill="black"/>
+  
+  <!-- 添加更多随机数据点 -->
+  <rect x="20" y="60" width="5" height="5" fill="black"/>
+  <rect x="40" y="70" width="5" height="5" fill="black"/>
+  <rect x="65" y="65" width="5" height="5" fill="black"/>
+  <rect x="80" y="90" width="5" height="5" fill="black"/>
+  <rect x="170" y="80" width="5" height="5" fill="black"/>
+  <rect x="190" y="100" width="5" height="5" fill="black"/>
+  <rect x="95" y="150" width="5" height="5" fill="black"/>
+  <rect x="30" y="140" width="5" height="5" fill="black"/>
+  <rect x="50" y="170" width="5" height="5" fill="black"/>
+  <rect x="120" y="180" width="5" height="5" fill="black"/>
+  <rect x="160" y="190" width="5" height="5" fill="black"/>
+  <rect x="180" y="170" width="5" height="5" fill="black"/>
+  <rect x="200" y="120" width="5" height="5" fill="black"/>
+</svg> 

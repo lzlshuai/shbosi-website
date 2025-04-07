@@ -2,7 +2,7 @@
   <div class="product-grid">
     <el-row :gutter="20">
       <el-col 
-        v-for="product in products" 
+        v-for="product in displayedProducts" 
         :key="product.model"
         :xs="24"
         :sm="12"
@@ -51,16 +51,35 @@
         </el-card>
       </el-col>
     </el-row>
+    
+    <CustomPagination
+      v-if="totalPages > 1"
+      v-model:currentPage="currentPage"
+      :totalPages="totalPages"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
+import { ref, computed } from 'vue'
 import { Picture } from '@element-plus/icons-vue'
 import type { Product } from '../data/products'
+import CustomPagination from './CustomPagination.vue'
 
-defineProps<{
+const props = defineProps<{
   products: Product[]
 }>()
+
+const currentPage = ref(1)
+const itemsPerPage = 8
+
+const totalPages = computed(() => Math.ceil(props.products.length / itemsPerPage))
+
+const displayedProducts = computed(() => {
+  const start = (currentPage.value - 1) * itemsPerPage
+  const end = start + itemsPerPage
+  return props.products.slice(start, end)
+})
 
 defineEmits<{
   (e: 'show-detail', product: Product): void
@@ -82,11 +101,11 @@ const getProductImage = (model: string) => {
   ]
   
   if (group1Products.includes(model)) {
-    return '/images/products/masterbatch-granules-1.jpg'
+    return './images/products/product-1.jpg'
   }
   
   // 其他产品使用第二张图片
-  return '/images/products/masterbatch-granules-2.jpg'
+  return './images/products/product-2.jpg'
 }
 </script>
 
@@ -160,20 +179,70 @@ const getProductImage = (model: string) => {
 }
 
 @media (max-width: 768px) {
+  .product-grid {
+    margin-top: 1rem;
+    padding: 0 10px;
+  }
+
+  .product-card {
+    margin-bottom: 15px;
+    border-radius: 12px;
+  }
+
   .product-image {
-    height: 160px;
+    height: 180px;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .product-info {
+    padding: 12px;
   }
 
   .product-info h3 {
-    font-size: 1rem;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
   }
 
   .description {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    height: auto;
+    max-height: 2.8em;
+  }
+
+  .tags {
+    gap: 6px;
   }
 
   .el-tag {
-    font-size: 0.7rem;
+    margin: 0;
+    padding: 0 8px;
+    height: 24px;
+    line-height: 24px;
+    font-size: 0.8rem;
+  }
+
+  /* 优化触摸体验 */
+  .product-card {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .product-card:active {
+    transform: scale(0.98);
+  }
+}
+
+/* iOS 设备特定优化 */
+@supports (-webkit-touch-callout: none) {
+  .product-grid {
+    /* 防止iOS橡皮筋效果 */
+    overscroll-behavior: none;
+  }
+
+  .product-card {
+    /* 优化触摸反馈 */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
   }
 }
 </style> 

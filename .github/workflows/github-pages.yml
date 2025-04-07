@@ -21,41 +21,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-          cache: 'npm'
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
       
-      - name: Install dependencies
-        run: npm install
-      
-      - name: Build
-        run: npm run build
-      
-      - name: Copy static files
+      - name: Create static site
         run: |
-          cp public/test.html dist/
-          cp public/index-static.html dist/
-          cp public/404.html dist/
-      
-      - name: Create fallback index if needed
-        run: |
-          if [ ! -f "dist/index.html" ]; then
-            cp public/index-static.html dist/index.html
-          fi
-      
-      - name: Fix resource paths
-        run: |
-          # 修复资源路径，使用相对路径
-          find dist -name '*.html' -exec sed -i 's|/bosi-website/assets/|./assets/|g' {} \;
-          find dist -name '*.html' -exec sed -i 's|src="/|src="./|g' {} \;
-          find dist -name '*.html' -exec sed -i 's|href="/|href="./|g' {} \;
+          mkdir -p static-site
+          cp public/index-direct.html static-site/index.html
+          cp public/test.html static-site/
+          cp public/404.html static-site/
+          cp -r public/images static-site/ || echo "No images folder found"
+          cp public/*.svg static-site/ || echo "No SVG files found"
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: './static-site'
   
   deploy:
     environment:

@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [
     vue()
   ],
-  base: './',
+  base: '/bosi-website/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),
@@ -17,8 +17,6 @@ export default defineConfig({
     host: true,
     port: 5173,
     strictPort: true,
-    https: false,
-    cors: true,
     open: true
   },
   build: {

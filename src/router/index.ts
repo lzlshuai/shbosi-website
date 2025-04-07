@@ -2,7 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHashHistory('/bosi-website/'),
   routes: [
     {
       path: '/',

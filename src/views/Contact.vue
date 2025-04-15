@@ -106,6 +106,29 @@
         </el-card>
       </el-col>
     </el-row>
+
+    <div class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>联系我们</h3>
+          <p>电话：021-12345678</p>
+          <p>邮箱：info@shbosi.cn</p>
+          <p>地址：上海市浦东新区张江高科技园区</p>
+        </div>
+        <div class="footer-section">
+          <h3>快速链接</h3>
+          <ul>
+            <li><router-link to="/">首页</router-link></li>
+            <li><router-link to="/products">产品中心</router-link></li>
+            <li><router-link to="/about">关于我们</router-link></li>
+            <li><router-link to="/contact">联系我们</router-link></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 上海博思新材料科技有限公司. 保留所有权利.</p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -448,5 +471,54 @@ const resetForm = () => {
 .qr-img:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.footer {
+  margin-top: 2rem;
+  padding: 2rem;
+  background-color: #f8f9fa;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-section {
+  flex: 1;
+}
+
+.footer-section h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.footer-section p {
+  margin: 0.5rem 0;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+  color: #606266;
+  text-decoration: none;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #dcdfe6;
+}
+
+.footer-bottom p {
+  margin: 0;
 }
 </style> 
